@@ -12,6 +12,9 @@ import List from '@material-ui/core/List';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import rongbaz from './icon.png'
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 
 
@@ -72,16 +75,54 @@ import rongbaz from './icon.png'
         },
       }));
 
+
+      const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
     const classes = useStyles();
+
+
+   
+    
       return ( 
+
         <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="">
           <Toolbar>
 
               <img src={rongbaz} style={{height:65, width:100}} />
 <div style={{ marginLeft:0,
           width: '100%'}}>
-              <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Movies</Button>
+              <Button
+              aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
+
+               color="primary" style={{color:'whitesmoke',marginRight:70}}>Movies</Button>
+
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Bollywood</MenuItem>
+        <MenuItem onClick={handleClose}>Hollywood</MenuItem>
+        <MenuItem onClick={handleClose}>Tamil</MenuItem>
+        <MenuItem onClick={handleClose}>Turkish</MenuItem>
+        <MenuItem onClick={handleClose}>Kolkata</MenuItem>
+
+
+      </Menu>
+
+
               <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Tv Series</Button>
               <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Live Tv</Button>
               <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Upcomming</Button>
@@ -108,6 +149,11 @@ import rongbaz from './icon.png'
             </div>
           </Toolbar>
         </AppBar>
+
+
+        
+
+
       </div>
        );
   }

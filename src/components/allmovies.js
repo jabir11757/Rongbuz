@@ -48,7 +48,7 @@ return (
 
   <Grid item xs={2} key={index}  >
 <Card  style={{ maxWidth: 250, margin: 10 }}>
-<CardHeader subheader={movies.release_date} />
+<CardHeader subheader={movies.release_date}/>
 <CardMedia
   style={{
     height: 0,
@@ -70,7 +70,7 @@ return (
   <IconButton aria-label="add to favorites">
     <FavoriteIcon />
   </IconButton>
-  <Typography variant="subtitle1" ></Typography>
+  <Typography variant="subtitle1"></Typography>
 <Button  onClick={onplay}>play</Button>
 
 </CardActions>

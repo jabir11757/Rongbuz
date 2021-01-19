@@ -18,6 +18,9 @@ const Main = () => {
             <Recent/>
            
             <AllMovies/>
+
+          
+
             
             
         </div>
