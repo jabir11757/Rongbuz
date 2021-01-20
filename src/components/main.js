@@ -5,6 +5,7 @@ import AllMovies from './allmovies'
 import Navbar from './nav'
 import MySlider from './slider'
 import { Divider } from '@material-ui/core';
+import Bollywood from './bollywood';
 
 
 
@@ -12,12 +13,13 @@ import { Divider } from '@material-ui/core';
 const Main = () => {
     return ( 
         <div>
-            <Navbar/>
+            {/* <Navbar/>
             <MySlider/>
             <Popular/>
             <Recent/>
            
-            <AllMovies/>
+            <AllMovies/> */}
+            <Bollywood/>
 
           
 
