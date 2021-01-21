@@ -94,7 +94,7 @@ import MenuItem from '@material-ui/core/MenuItem';
         <AppBar position="">
           <Toolbar>
 
-              <img src={rongbaz} style={{height:65, width:100}} />
+              <img src={rongbaz} alt="" style={{height:65, width:100}} />
 <div style={{ marginLeft:0,
           width: '100%'}}>
               <Button
