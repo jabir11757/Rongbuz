@@ -5,10 +5,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import Slide1 from "./blood.jpg";
-import Slide2 from "./rolling.jpg";
-import Slide3 from "./kings.jpg";
-import Slide4 from "./raees.jpg";
+import Slide1 from "../img/blood.jpg";
+import Slide2 from "../img/rolling.jpg";
+import Slide3 from "../img/kings.jpg";
+import Slide4 from "../img/raees.jpg";
 
 
 export default class MySlider extends Component {
