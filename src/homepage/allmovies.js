@@ -71,7 +71,7 @@ return (
     <FavoriteIcon />
   </IconButton>
   <Typography variant="subtitle1"></Typography>
-<Button  onClick={onplay}>play</Button>
+<Button   >play</Button>
 
 </CardActions>
 

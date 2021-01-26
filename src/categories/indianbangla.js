@@ -14,7 +14,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 const axios = require("axios")
 
 
-const Indian = () => {
+const IndianBangla = () => {
 
   const url = "https://forbit.tech/movizo/categories/5fd71d22c67c0e28b00ff024/movies"
 
@@ -91,4 +91,4 @@ return(
    );
 }
  
-export default Indian ;
+export default IndianBangla ;

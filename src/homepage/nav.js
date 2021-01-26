@@ -9,6 +9,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import rongbaz from '../img/icon.png'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {blue} from '@material-ui/core/colors'
+import { Box } from "@material-ui/core";
+import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom'
 
 
 
@@ -83,6 +86,21 @@ import MenuItem from '@material-ui/core/MenuItem';
   };
 
 
+
+
+  //navlink dropdown
+
+  const history = useHistory()
+
+  const bollywood=()=>{
+    history.push("./bollywood")
+  }
+
+  const hollywood=()=>{
+    history.push("./hollywood")
+  }
+  
+
     const classes = useStyles();
 
 
@@ -109,12 +127,19 @@ import MenuItem from '@material-ui/core/MenuItem';
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Bollywood</MenuItem>
-        <MenuItem onClick={handleClose}>Hollywood</MenuItem>
+        <Box style={{backgroundColor:"grey"}}>
+        <MenuItem onClick={bollywood}> <Link to='/bollywood'></Link> Bollywood</MenuItem>
+        <MenuItem onClick={hollywood}>Hollywood</MenuItem>
         <MenuItem onClick={handleClose}>Tamil</MenuItem>
         <MenuItem onClick={handleClose}>Turkish</MenuItem>
-        <MenuItem onClick={handleClose}>Kolkata</MenuItem>
-
+        <MenuItem onClick={handleClose}>Indian Bangla</MenuItem>
+        <MenuItem onClick={handleClose}>French</MenuItem> 
+        <MenuItem onClick={handleClose}>Italian</MenuItem>
+        <MenuItem onClick={handleClose}>Malayalam</MenuItem>
+        <MenuItem onClick={handleClose}>Foreign</MenuItem>
+        <MenuItem onClick={handleClose}>Japanese</MenuItem>
+        <MenuItem onClick={handleClose}>Animation</MenuItem>
+        </Box>
 
       </Menu>
 
@@ -152,6 +177,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 
       </div>
        );
+  }
+
+  function Bollywood(){
+    return(
+      <div>
+        <Bollywood/>
+      </div>
+    )
   }
    
   export default Navbar;

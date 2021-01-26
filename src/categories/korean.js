@@ -10,37 +10,23 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { useHistory } from "react-router";
 
 const axios = require("axios")
+ 
 
+const Korean = () => {
 
-const Popular = () => {
+  const url = "https://forbit.tech/movizo/categories/5fd71d3bc67c0e28b00ff027/movies"
 
-  // const handler =(popularmovie) =>{
-   
-  // }
- const history = useHistory()
-
-  const bollywood=(popularmovie)=>{
-   history.push({
-      pathname: '/player',
-      state: popularmovie.video_url
-    })
-    console.log(popularmovie)
-  }
-
-  const url = "https://forbit.tech/movizo/movies/popular"
-
-  const [popularmovies, setpopularmovies] = useState ([])
+  const [koreanmovies, setkoreanmovies] = useState ([])
   
   useEffect(() => {
-    if(popularmovies.length===0){
+    if(koreanmovies.length===0){
       axios
       .get(url)
       .then((response) => {
         console.log(response.data)
-        setpopularmovies(response.data)
+        setkoreanmovies(response.data)
         
       })
       .catch((err) => console.log(err))
@@ -49,35 +35,32 @@ const Popular = () => {
   },[])
 
 
-  
-    
- 
+
 
   return ( 
 
 
 <Box >
           
-<Typography> Popular Movies</Typography>     
+<Typography> Korean Movies</Typography>     
           <Grid container display="flex">
             
             
 
-          {popularmovies.map((popularmovie , index)=>{
+          {koreanmovies.map((koreanmovies , index)=>{
 
 return(
   
 <Grid item xs={2} key={index}  >
 <Card  style={{ maxWidth: 250, margin: 10 }}>
-  <CardHeader subheader={popularmovie.release_date} />
+  <CardHeader subheader={koreanmovies.release_date} />
   <CardMedia
     style={{
       height: 0,
       paddingTop: "56%", // 16:9
     }}
-    image= {popularmovie.image_url}
+    image= {koreanmovies.image_url}
   />
-  
   <CardContent>
     <Typography
       variant="subtitle1"
@@ -85,7 +68,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
-{popularmovie.title}
+
     </Typography>
   </CardContent>
   <CardActions disableSpacing>
@@ -93,7 +76,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={() => bollywood(popularmovie)}>play</Button>
+  <Button  onClick={onplay}>play</Button>
 
   </CardActions>
   
@@ -108,4 +91,4 @@ return(
    );
 }
  
-export default Popular ;
+export default Korean ;
