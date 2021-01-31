@@ -7,18 +7,11 @@ import Button from '@material-ui/core/Button';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import rongbaz from '../img/icon.png'
-import Menu from '@material-ui/core/Menu';
+import Menu from '@material-ui/core/Menu'; 
 import MenuItem from '@material-ui/core/MenuItem';
 import {blue} from '@material-ui/core/colors'
 import { Box } from "@material-ui/core";
 import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom'
-
-
-
-
-
-
- 
 
   const Navbar = () => {
 
@@ -85,9 +78,6 @@ import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom'
     setAnchorEl(null);
   };
 
-
-
-
   //navlink dropdown
 
   const history = useHistory()
@@ -95,66 +85,89 @@ import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom'
   const bollywood=()=>{
     history.push("./bollywood")
   }
-
   const hollywood=()=>{
     history.push("./hollywood")
   }
+  const tamil=()=>{
+    history.push("./tamil")
+  }
+  const animation=()=>{
+    history.push("./animation")
+  }
+  const chinese=()=>{
+    history.push("./chinese")
+  }
+  const foreign=()=>{
+    history.push("./foreign")
+  }
+  const indianbangla=()=>{
+    history.push("./indianbangla")
+  }
+  const italian=()=>{
+    history.push("./italian")
+  }
+  const japanese=()=>{
+    history.push("./japanese")
+  }
+  const korean=()=>{
+    history.push("./korean")
+  }
+  const malayalam=()=>{
+    history.push("./malayalam")
+  }
+  const french=()=>{
+    history.push("./french")
+  }
+  
   
 
     const classes = useStyles();
 
 
-   
-    
       return ( 
 
         <div className={classes.root}>
         <AppBar position="">
           <Toolbar>
 
-              <img src={rongbaz} alt="" style={{height:65, width:100}} />
-<div style={{ marginLeft:0,
-          width: '100%'}}>
-              <Button
-              aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
+              <img src={rongbaz} alt="" style={{height:50, width:70 , marginLeft:30}} />
+                  <div style={{ marginLeft:0,width: '100%'}}>
+                          <Button
+                          aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
+                          color="primary" style={{color:'whitesmoke',marginRight:70}}>Movies</Button>
 
-               color="primary" style={{color:'whitesmoke',marginRight:70}}>Movies</Button>
-
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <Box style={{backgroundColor:"grey"}}>
-        <MenuItem onClick={bollywood}> <Link to='/bollywood'></Link> Bollywood</MenuItem>
-        <MenuItem onClick={hollywood}>Hollywood</MenuItem>
-        <MenuItem onClick={handleClose}>Tamil</MenuItem>
-        <MenuItem onClick={handleClose}>Turkish</MenuItem>
-        <MenuItem onClick={handleClose}>Indian Bangla</MenuItem>
-        <MenuItem onClick={handleClose}>French</MenuItem> 
-        <MenuItem onClick={handleClose}>Italian</MenuItem>
-        <MenuItem onClick={handleClose}>Malayalam</MenuItem>
-        <MenuItem onClick={handleClose}>Foreign</MenuItem>
-        <MenuItem onClick={handleClose}>Japanese</MenuItem>
-        <MenuItem onClick={handleClose}>Animation</MenuItem>
-        </Box>
-
-      </Menu>
+                  <Menu
+                    id="simple-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                  >
+                    <Box style={{backgroundColor:"#3f51b5" }}>
+                    <MenuItem onClick={bollywood}>Bollywood</MenuItem>
+                    <MenuItem onClick={hollywood}>Hollywood</MenuItem>
+                    <MenuItem onClick={tamil}>Tamil</MenuItem>
+                    <MenuItem onClick={indianbangla}>Indian Bangla</MenuItem>
+                    <MenuItem onClick={french}>French</MenuItem> 
+                    <MenuItem onClick={italian}>Italian</MenuItem>
+                    <MenuItem onClick={malayalam}>Malayalam</MenuItem>
+                    <MenuItem onClick={foreign}>Foreign</MenuItem>
+                    <MenuItem onClick={japanese}>Japanese</MenuItem>
+                    <MenuItem onClick={animation}>Animation</MenuItem>
+                    <MenuItem onClick={chinese}>Chinese</MenuItem>
+                    <MenuItem onClick={korean}>Korean</MenuItem> 
 
 
-              <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Tv Series</Button>
-              <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Live Tv</Button>
-              <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Upcomming</Button>
-              <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Kids Zone</Button>
-</div>
+                    </Box>
 
-              
-           
-            <Typography className={classes.title} variant="h6" noWrap>
-              
-            </Typography>
+                  </Menu>
+                          <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Tv Series</Button>
+                          <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Live Tv</Button>
+                          <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Upcomming</Button>
+                          <Button color="primary" style={{color:'whitesmoke',marginRight:70}}>Kids Zone</Button>
+            </div>
+
+            <Typography className={classes.title} variant="h6" noWrap></Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -171,21 +184,9 @@ import {BrowserRouter as Router, Link, useHistory} from 'react-router-dom'
           </Toolbar>
         </AppBar>
 
-
-        
-
-
       </div>
        );
   }
 
-  function Bollywood(){
-    return(
-      <div>
-        <Bollywood/>
-      </div>
-    )
-  }
-   
   export default Navbar;
 

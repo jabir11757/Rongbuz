@@ -10,23 +10,32 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
 
 const axios = require("axios")
 
 
 const Malayalam = () => {
 
+  const history=useHistory()
+  const malayalam=(malaylammovies)=>{
+    history.push({
+      pathname:'/player',
+      state:malaylammovies
+    })
+    console.log(malaylammovies)
+  }
   const url = "https://forbit.tech/movizo/categories/5fd71d42c67c0e28b00ff028/movies"
 
-  const [malaylamammovies, setmalaylamammovies] = useState ([])
+  const [malaylammovies, setmalaylammovies] = useState ([])
   
   useEffect(() => {
-    if(malaylamammovies.length===0){
+    if(malaylammovies.length===0){
       axios
       .get(url)
       .then((response) => {
         console.log(response.data)
-        setmalaylamammovies(response.data)
+        setmalaylammovies(response.data)
         
       })
       .catch((err) => console.log(err))
@@ -42,24 +51,24 @@ const Malayalam = () => {
 
 <Box >
           
-<Typography> Malayalam Movies</Typography>     
+<Typography variant='h4'> Malayalam Movies</Typography>     
           <Grid container display="flex">
             
             
 
-          {malaylamammovies.map((malaylamammovies , index)=>{
+          {malaylammovies.map((malaylammovies , index)=>{
 
 return(
   
 <Grid item xs={2} key={index}  >
 <Card  style={{ maxWidth: 250, margin: 10 }}>
-  <CardHeader subheader={malaylamammovies.release_date} />
+  <CardHeader subheader={malaylammovies.release_date} />
   <CardMedia
     style={{
       height: 0,
       paddingTop: "56%", // 16:9
     }}
-    image= {malaylamammovies.image_url}
+    image= {malaylammovies.image_url}
   />
   <CardContent>
     <Typography
@@ -68,7 +77,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
-
+{malaylammovies.title}
     </Typography>
   </CardContent>
   <CardActions disableSpacing>
@@ -76,7 +85,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={onplay}>play</Button>
+  <Button  onClick={()=>malayalam(malaylammovies)}>play</Button>
 
   </CardActions>
   

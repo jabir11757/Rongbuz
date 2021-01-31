@@ -10,11 +10,24 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
+
 
 const axios = require("axios")
 
 
 const Animation = () => {
+
+
+  const history = useHistory()
+
+  const animation=(animationmovie)=>{
+   history.push({
+      pathname: '/player',
+      state: animationmovie
+    })
+    console.log(animationmovie)
+  }
 
   const url = "https://forbit.tech/movizo/categories/5fd71cb3c67c0e28b00ff01e/movies"
 
@@ -42,7 +55,9 @@ const Animation = () => {
 
 <Box >
           
-<Typography> Animation Movies</Typography>     
+<Typography variant='h4'> Animation Movies</Typography>    
+
+
           <Grid container display="flex">
             
             
@@ -68,7 +83,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
-
+{animationmovies.title}
     </Typography>
   </CardContent>
   <CardActions disableSpacing>
@@ -76,7 +91,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={onplay}>play</Button>
+  <Button  onClick={()=>animation(animationmovies)}>play</Button>
 
   </CardActions>
   

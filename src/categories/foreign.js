@@ -10,11 +10,22 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
 
 const axios = require("axios")
  
 
 const Foreign = () => {
+
+  const history = useHistory()
+
+  const foreign=(foreignmovies)=>{
+    history.push({
+      pathname:'/player',
+      state: foreignmovies
+    })
+    console.log(foreignmovies)
+  }
 
   const url = "https://forbit.tech/movizo/categories/5fd71d00c67c0e28b00ff021/movies"
 
@@ -42,7 +53,7 @@ const Foreign = () => {
 
 <Box >
           
-<Typography> Foreign Movies</Typography>     
+<Typography variant='h4'> Foreign Movies</Typography>     
           <Grid container display="flex">
             
             
@@ -68,7 +79,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
-
+{foreignmovies.title}
     </Typography>
   </CardContent>
   <CardActions disableSpacing>
@@ -76,7 +87,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={onplay}>play</Button>
+  <Button  onClick={()=>foreign(foreignmovies)}>play</Button>
 
   </CardActions>
   

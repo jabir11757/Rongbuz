@@ -10,11 +10,22 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
 
 const axios = require("axios")
 
 
 const Chinese = () => {
+
+  const history=useHistory() 
+
+  const chinese =(chinesemovies)=>{
+    history.push({
+      pathname:'/player',
+      state:chinesemovies
+    })
+    console.log(chinesemovies)
+  }
 
   const url = "https://forbit.tech/movizo/categories/5fd71cf7c67c0e28b00ff020/movies"
 
@@ -42,7 +53,7 @@ const Chinese = () => {
 
 <Box >
           
-<Typography> Chinese Movies</Typography>     
+<Typography variant='h4'> Chinese Movies</Typography>     
           <Grid container display="flex">
             
             
@@ -68,7 +79,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
-
+{chinesemovies.title}
     </Typography>
   </CardContent>
   <CardActions disableSpacing>
@@ -76,7 +87,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={onplay}>play</Button>
+  <Button  onClick={()=>chinese(chinesemovies)}>play</Button>
 
   </CardActions>
   

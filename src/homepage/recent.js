@@ -10,11 +10,23 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
+
 
 const axios = require("axios")
 
 
 const Recent = () => {
+
+  const history = useHistory()
+
+  const recent=(recentmovie)=>{
+   history.push({
+      pathname: '/player',
+      state: recentmovie
+    })
+    console.log(recentmovie)
+  }
 
   const url = "https://forbit.tech/movizo/movies/featured"
 
@@ -39,7 +51,7 @@ const Recent = () => {
 
 <Box >
           
-<Typography> Recent Movies</Typography>     
+<Typography variant='h6'> Recent Movies</Typography>     
           <Grid container display="flex">
             
             
@@ -65,6 +77,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
+      {recentmovie.title}
 
     </Typography>
   </CardContent>
@@ -73,7 +86,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={onplay}>play</Button>
+  <Button  onClick={()=>recent(recentmovie)}>play</Button>
 
   </CardActions>
 

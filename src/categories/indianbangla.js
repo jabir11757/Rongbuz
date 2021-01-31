@@ -10,11 +10,23 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
+
 
 const axios = require("axios")
 
 
 const IndianBangla = () => {
+
+  const history=useHistory()
+
+  const indianbangla=(indianmovies)=>{
+    history.push({
+      pathname:'/player',
+      state:indianmovies
+    })
+    console.log(indianmovies)
+  }
 
   const url = "https://forbit.tech/movizo/categories/5fd71d22c67c0e28b00ff024/movies"
 
@@ -42,7 +54,7 @@ const IndianBangla = () => {
 
 <Box >
           
-<Typography> Indian Movies</Typography>     
+<Typography variant='h4'> Indian Movies</Typography>     
           <Grid container display="flex">
             
             
@@ -68,6 +80,7 @@ return(
       component="p"
       style={{ textAlign: "center", height: 20 }}
     >
+{indianmovies.title}
 
     </Typography>
   </CardContent>
@@ -76,7 +89,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={onplay}>play</Button>
+  <Button  onClick={()=>indianbangla(indianmovies)}>play</Button>
 
   </CardActions>
   

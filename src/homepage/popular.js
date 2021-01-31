@@ -22,10 +22,10 @@ const Popular = () => {
   // }
  const history = useHistory()
 
-  const bollywood=(popularmovie)=>{
+  const popular=(popularmovie)=>{
    history.push({
       pathname: '/player',
-      state: popularmovie.video_url
+      state: popularmovie
     })
     console.log(popularmovie)
   }
@@ -58,7 +58,7 @@ const Popular = () => {
 
 <Box >
           
-<Typography> Popular Movies</Typography>     
+<Typography variant='h6'> Popular Movies</Typography>     
           <Grid container display="flex">
             
             
@@ -69,7 +69,7 @@ return(
   
 <Grid item xs={2} key={index}  >
 <Card  style={{ maxWidth: 250, margin: 10 }}>
-  <CardHeader subheader={popularmovie.release_date} />
+  <CardHeader subheader={popularmovie.release_date}/>
   <CardMedia
     style={{
       height: 0,
@@ -93,7 +93,7 @@ return(
       <FavoriteIcon />
     </IconButton>
     <Typography variant="subtitle1" ></Typography>
-  <Button  onClick={() => bollywood(popularmovie)}>play</Button>
+  <Button  onClick={() => popular (popularmovie)}>play</Button>
 
   </CardActions>
   

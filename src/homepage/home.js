@@ -2,7 +2,9 @@ import React from 'react';
 import Nav from "./nav"
 import Slider from "./slider"
 import Popular from "./popular"
-// import Recent from "./recent"
+import Recent from "./recent"
+import AllMovies from './allmovies';
+
 
 
 
@@ -19,7 +21,8 @@ const Home = () => {
         <Nav/>
         <Slider/>
          <Popular/>
-        {/* <Recent/> */}
+        <Recent/>
+        <AllMovies/>
   
 </div>
 

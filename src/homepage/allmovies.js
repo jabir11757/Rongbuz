@@ -12,12 +12,37 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from "@material-ui/core/IconButton";
 import Button from '@material-ui/core/Button';
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useHistory } from "react-router";
+
 
 
 const axios = require ('axios')
 
 
 const AllMovies = () => {
+
+  // const history = useHistory()
+
+  // const allMovie=(movies)=>{
+  //  history.push({
+  //     pathname: '/player',
+  //     state: movies
+  //   })
+  //   console.log(movies)
+  // }
+
+  const history = useHistory()
+
+  const allmovie=(movies)=>{
+   
+   history.push({
+      pathname: '/player',
+      state: movies
+    })
+    
+  }
+
+  
 
   const url = "https://forbit.tech/movizo/movies"
 
@@ -40,50 +65,53 @@ const AllMovies = () => {
 
   return (
     <Box>
-      <Typography>All Movies</Typography>
+      <Typography variant='h6'>All Movies</Typography>
       <Grid container display="flex">
         {movies.map((movies,index)=>{
 
 return ( 
 
-  <Grid item xs={2} key={index}  >
-<Card  style={{ maxWidth: 250, margin: 10 }}>
-<CardHeader subheader={movies.release_date}/>
-<CardMedia
-  style={{
-    height: 0,
-    paddingTop: "56%", // 16:9
-  }}
-  image= {movies.image_url}
-/>
-<CardContent>
-  <Typography
-    variant="subtitle1"
-    color="textSecondary"
-    component="a"
-    style={{ textAlign: "center", height: 20 }}
-  >
+                <Grid item xs={2} key={index}  >
+              <Card  style={{ maxWidth: 250, margin: 10 }}>
+              <CardHeader subheader={movies.release_date}/>
+              <CardMedia
+                style={{
+                  height: 0,
+                  paddingTop: "56%", // 16:9
+                }}
+                image= {movies.image_url}
+              />
+              <CardContent>
+                <Typography
+                  variant="subtitle1"
+                  color="textSecondary"
+                  component="a"
+                  
 
-  </Typography>
-</CardContent>
-<CardActions disableSpacing>
-  <IconButton aria-label="add to favorites">
-    <FavoriteIcon />
-  </IconButton>
-  <Typography variant="subtitle1"></Typography>
-<Button   >play</Button>
+                  style={{ textAlign: "center", height: 20 ,}}
+                >
+                  {movies.title}
 
-</CardActions>
+                </Typography>
+              </CardContent>
+              <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                  <FavoriteIcon />
+                </IconButton>
+                <Typography variant="subtitle1"></Typography>
+                < Button onClick={() => allmovie(movies) }>play</Button>
 
-</Card>
-</Grid>
+              </CardActions>
+
+              </Card>
+              </Grid>
 
 
- );
+              );
 
-        })}
-      </Grid>
-    </Box>
+                      })}
+                    </Grid>
+                  </Box>
   )
 
   
